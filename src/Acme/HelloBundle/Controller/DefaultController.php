@@ -38,6 +38,19 @@ class DefaultController extends Controller
         // ... create and return a Response object
     }
 
-
+    public function updateAction()
+    {
+        $form = $this->createForm(...);
+        $form->bindRequest($this->getRequest());
+        if ($form->isValid()) {
+            // do some sort of processing
+            $this->get('session')->setFlash(
+                'notice',
+                'Your changes were saved!'
+            );
+            return $this->redirect($this->generateUrl(...));
+        }
+        return $this->render(...);
+    }
 
 }
