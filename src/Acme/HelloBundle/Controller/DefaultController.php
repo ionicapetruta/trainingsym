@@ -57,7 +57,7 @@ class DefaultController extends Controller
             'Your changes were saved!'
         );
 
-
+        return new Response('asda');
     }
 
 }
