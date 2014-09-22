@@ -3,13 +3,19 @@
 <div>Params received:</div>
 <ul>
     <li>First name: {{ name }}</li>
-    <li>Last name: {{ last_name }}</li>
-    <li>Color: {{ color }}</li>
+    {#<li>Last name: {{ last_name }}</li>#}
+    {#<li>Color: {{ color }}</li>#}
 </ul>
 </body>
 </html>
-{% if app.session.hasFlash('notice') %}
+{#{% if app.session.hasFlash('notice') %}#}
+    {#<div class="flash-notice">#}
+        {#{{ app.session.flash('notice') }}#}
+    {#</div>#}
+{#{% endif %}#}
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
-        {{ app.session.flash('notice') }}
+        {{ flashMessage }}
     </div>
-{% endif %}
+{% endfor %}

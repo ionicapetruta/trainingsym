@@ -26,13 +26,25 @@ class DefaultController extends Controller
 //    }
     public function indexAction($name)
     {
-        $response = $this->forward('AcmeHelloBundle:Hello:fancy', array(
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Your changes were saved!'
+        );
+
+        return $this->render(
+            '@AcmeHello/Default/hello-view.html.twig',
+            array(
                 'name' => $name,
-                'color' => 'green',
-            ));
-        // ... further modify the response or return it directly
-        return $response;
+            )
+        );
+//        $response = $this->forward('AcmeHelloBundle:Default:update', array(
+//                'name' => $name,
+//                'color' => 'green',
+//            ));
+//        // ... further modify the response or return it directly
+//        return $response;
     }
+
     public function fancyAction($name, $color)
     {
         // ... create and return a Response object
@@ -40,17 +52,12 @@ class DefaultController extends Controller
 
     public function updateAction()
     {
-        $form = $this->createForm(...);
-        $form->bindRequest($this->getRequest());
-        if ($form->isValid()) {
-            // do some sort of processing
-            $this->get('session')->setFlash(
-                'notice',
-                'Your changes were saved!'
-            );
-            return $this->redirect($this->generateUrl(...));
-        }
-        return $this->render(...);
+        $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Your changes were saved!'
+        );
+
+
     }
 
 }
