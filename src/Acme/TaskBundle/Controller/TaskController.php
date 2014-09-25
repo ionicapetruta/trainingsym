@@ -50,8 +50,8 @@ class TaskController extends Controller
                     'form' => $form->createView(),
                 ));
         }
-//        $url = $this->generateUrl('acme_task_homepage', array('name' => 'a'));
-//        return $this->redirect($url);
+        $url = $this->generateUrl('acme_task_homepage', array('name' => 'a'));
+        return $this->redirect($url);
 
 
 
