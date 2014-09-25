@@ -99,14 +99,12 @@ class DefaultController extends Controller
 
     public function showAllEntryAction()
     {
-
         $productRepository = $this->getDoctrine()
             ->getRepository('AcmeStoreBundle:Product');
 
         $products = $productRepository->findAll();
-//        $products = 1;
         $params = array (
-            'gigel' => $products,
+            'products' => $products,
         );
         return $this->render('@AcmeStore/Default/view.html.twig',
             $params
