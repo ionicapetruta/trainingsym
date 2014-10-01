@@ -1,2 +1,4 @@
 
-{{ form(form) }}
+{% form_theme form with 'AcmeTaskBundle:Form:fields.html.twig' %}
+{% form_theme form with ['AcmeTaskBundle:Form:fields.html.twig',
+'AcmeTaskBundle:Form:fields2.html.twig'] %}

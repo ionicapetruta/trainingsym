@@ -91,4 +91,25 @@ class Task
     {
         return $this->dueDate;
     }
+
+    /**
+     * @Assert\Type(type="Acme\TaskBundle\Entity\Category")
+     */
+    protected $category;
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
